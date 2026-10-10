@@ -241,7 +241,7 @@ class ScoutService : Service(), SensorEventListener, LocationListener {
     }
     private fun escalate() {                               // no answer: keep sounding an alarm
         if (!asking) return
-        try { tone.startTone(ToneGenerator.TONE_CDMA_ALARM, 1500) } catch (e: Exception) {}
+        try { tone.startTone(ToneGenerator.TONE_CDMA_EMERGENCY_RINGBACK, 1500) } catch (e: Exception) {}
         h.postDelayed({ if (asking) say(Phrases.wake(Settings.lang)) }, 1600)
         h.postDelayed({ escalate() }, 9000)
     }
